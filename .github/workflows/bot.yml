@@ -33,8 +33,11 @@ jobs:
          timeout-minutes: 350
          continue-on-error: true
          run: |
-           cd ${{ secrets.GH_REPO }} 
-
+         cd ${{ secrets.GH_REPO }}
+         docker build . --rm --force-rm --compress --pull --file Dockerfile -t bot run --privileged --env-file .env --rm -i bot docker
+         
+           
+           
        - name: Loop workflow
          continue-on-error: true
          run: |
