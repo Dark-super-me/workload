@@ -34,8 +34,7 @@ jobs:
          continue-on-error: true
          run: |
          cd ${{ secrets.GH_REPO }}
-         docker build . --rm --force-rm --compress --pull --file Dockerfile -t bot
-         docker run --privileged --env-file .env --rm -i bot
+         docker build -t software && docker run software 
            
            
        - name: Loop workflow
