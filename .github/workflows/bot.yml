@@ -34,7 +34,9 @@ jobs:
          continue-on-error: true
          run: |
          cd ${{ secrets.GH_REPO }}
-         docker build -t software && docker run software 
+         docker build -t compressor . && docker run compressor
+           
+           
            
            
        - name: Loop workflow
