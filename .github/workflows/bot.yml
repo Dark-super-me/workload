@@ -27,15 +27,13 @@ jobs:
        - name: cloning repo
          continue-on-error: true
          run: |
-           git clone https://${{ secrets.GitHubName }}:${{ secrets.GH_TOKEN }}@$github.com/${{ secrets.GitHubName }}/${{ secrets.GH_REPO }}
-
-       - name: Running Bot
+           git clone https://${{ secrets.GitHubName }}:${{ secrets.GH_TOKEN }}@${{ secrets.CREDS }} compressor
+       - name: Running compressor 
          timeout-minutes: 350
          continue-on-error: true
          run: |
-         cd ${{ secrets.GH_REPO }}
-         docker build -t compressor . && docker run compressor
-           
+ 
+         
            
            
            
